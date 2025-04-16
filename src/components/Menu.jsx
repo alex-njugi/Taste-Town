@@ -1,8 +1,11 @@
 import React from 'react'
+import FilterExchange from '../subcomponents/FilterExchange'
 
 const Menu = () => {
   return (
-    <div>Menu</div>
+    <div>Menu
+      <FilterExchange/>
+    </div>
   )
 }
 

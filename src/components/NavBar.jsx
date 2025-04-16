@@ -13,6 +13,7 @@ const NavBar = () => {
             <Link to="/Contact">Contact</Link>
 
         </nav>
+        
     </div>
   )
 }

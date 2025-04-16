@@ -5,8 +5,8 @@ const Loadpage = () => {
     <div>
         <h1>Let's now shop<br></br> For daily food<br></br> & necessary.</h1>
         <p>We are truseted grocery shop you can buy <br></br>your necesary products use your phone.s</p>
-        <button>Shop Now</button>
-        <button>Download for ios</button>
+        <button className='shop-now-btn'>Shop Now</button>
+        <button className='download-btn'>Download for ios</button>
     </div>
   )
 }

@@ -5,20 +5,113 @@
 }
 body{
   width: 100%;
+  
 }
-.loaddis{
+.navbar {
   display: flex;
-  gap: 300px;
-  background: lightgreen;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #eaf2e0;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0 0 20px 20px;
 }
-.loaddis img{
+
+.navbar h1 {
+  color: #2e2e2e;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2e2e2e;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #4CAF50;
+}
+.loaddis {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 60px 80px;
+  background-color: #eaf2e0;
+  border-radius: 30px;
+  flex: 1;
+  margin: 20px;
+}
+
+.loaddis img {
   width: 300px;
-  
-
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.navbar{
+.loaddis h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1f1f1f;
+  margin-bottom: 20px;
+}
+
+.loaddis p {
+  font-size: 16px;
+  color: #5e5e5e;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+.shop-now-btn {
+  background-color: #ff3f3f;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-right: 15px;
+}
+
+.shop-now-btn:hover {
+  background-color: #e83535;
+}
+
+.download-btn {
+  background-color: white;
+  color: #2e2e2e;
+  border: 1px solid #aaa;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #f1f1f1;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+.home-container {
   display: flex;
-  gap: 50px;
-  
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #cdddc1; 
 }
+

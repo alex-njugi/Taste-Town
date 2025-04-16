@@ -4,7 +4,7 @@ import Loadpageimg from './Loadpageimg'
 
 const Home = () => {
   return (
-    <div>
+    <div className='home-container'>
         <NavBar />
         <Loadpageimg />
 

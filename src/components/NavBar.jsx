@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 
 const NavBar = () => {
   return (
     <div className='navbar'>
-        <h1>Taste Town</h1>
+        <img src={logo} alt="Taste Town Logo" />
         <nav className='nav-links'>
             <Link to="/">Home</Link>
             <Link to="/Menu">Menu</Link>

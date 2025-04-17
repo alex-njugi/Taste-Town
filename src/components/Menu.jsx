@@ -3,7 +3,7 @@ import FilterExchange from '../subcomponents/FilterExchange'
 
 const Menu = ({products}) => {
   return (
-    <div>Menu
+    <div>
       <FilterExchange products={products}/>
     </div>
   )

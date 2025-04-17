@@ -1,9 +1,14 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation,useNavigate } from 'react-router-dom'
 
 const ProductDetail = () => {
   const { state } = useLocation()
   const product = state?.product
+  const navigate = useNavigate()
+
+  const handleBackToList = () => {
+    navigate('/Menu')  
+  }
 
   if (!product) { 
     return( 
@@ -19,6 +24,7 @@ const ProductDetail = () => {
       <img src={product.image} alt={product.title} />
       <p>Price: ${product.price}</p>
       <p>{product.description || 'No description available.'}</p>
+      <button className="back-to-list-btn" onClick={handleBackToList}>Back to Product List</button>
     </div>
   )
 }

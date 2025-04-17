@@ -42,7 +42,7 @@ const FilterExchange = ({ products }) => {
             {category}
           </label>
         ))}
-        <button onClick={toggleSidebar}>Close</button>
+        <button className='sidebtn' onClick={toggleSidebar}>Close</button>
       </div>
 
       <Productcard products={filteredProducts} />

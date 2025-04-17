@@ -1,9 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const IndividualProduct = ({image,title,price}) => {
+const IndividualProduct = ({image,title,price,product}) => {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate(`/product/${product._id}`,{state: {product}})
+  }
+
   return(
 
-    <div className='individualprod'>
+    <div className='individualprod' onClick={handleClick}>
         <img src={image} alt="Product Image" />
         <h2>{title}</h2>
         <p>Price: ${price}</p>
@@ -23,6 +29,7 @@ const Productcard = ({products}) => {
             key={id}
             image={product.image}
             price={product.price}
+            product={product}
             
             />
         ))}

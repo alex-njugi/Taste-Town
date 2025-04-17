@@ -1,10 +1,10 @@
 import React from 'react'
 import FilterExchange from '../subcomponents/FilterExchange'
 
-const Menu = () => {
+const Menu = ({products}) => {
   return (
     <div>Menu
-      <FilterExchange/>
+      <FilterExchange products={products}/>
     </div>
   )
 }

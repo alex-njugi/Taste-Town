@@ -16,6 +16,7 @@ body{
   background-color: #eaf2e0;
   font-family: 'poppins', sans-serif;
   border-radius: 0 0 20px 20px;
+  
 }
 
 .navbar img{
@@ -173,4 +174,10 @@ html, body {
 
 .sidebar.hide {
   left: -300px;
+}
+.productdiv{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
 }

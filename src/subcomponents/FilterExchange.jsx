@@ -1,17 +1,8 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import Productcard from './Productcard'
 
-const FilterExchange = ({roducts}) => {
-    const [products, setproducts] = useState([])
-    useEffect(() => {
-        fetch('https://taste-town-server.vercel.app/items')
-        .then(res => res.json())
-        .then(data => setproducts(data))
-      
-    }, [])
-    
-    
-  return (
+const FilterExchange = ({products}) => {
+   return (
     <div>
         <Productcard products={products}/>
     </div>

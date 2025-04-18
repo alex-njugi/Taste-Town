@@ -20,8 +20,8 @@ const ProductDetail = () => {
 
   return (
     <div className='product-detail'>
-      <h1>{product.title}</h1>
-      <img src={product.image} alt={product.title} />
+      <h1>{product.name}</h1>
+      <img src={product.image} alt={product.name} />
       <p>Price: ${product.price}</p>
       <p>{product.description || 'No description available.'}</p>
       <button className="back-to-list-btn" onClick={handleBackToList}>Back to Product List</button>

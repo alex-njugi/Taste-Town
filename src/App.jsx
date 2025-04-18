@@ -8,6 +8,7 @@ import Layout from './components/Layout'
 import Errorlink from './components/Errorlink'
 import ProductDetail from './subcomponents/ProductDetails'
 import { useState,useEffect } from 'react'
+import Admin from './components/Admin'
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
         <Route path="/About" element={<About/>}/>
         <Route path="/Contact" element={<Contact/>}/>
         <Route path="/Menu" element={<Menu products={products}/>}/>
-        <Route path="/product/:id" element={<ProductDetail />} /> 
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path='/Admin' element={<Admin/>}/> 
       </Route>
       <Route path='*' element={<Errorlink/>}/>
       

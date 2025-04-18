@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import About from "./components/About"
 import Contact from "./components/Contact"
 import Home from "./components/Home"
@@ -19,21 +19,29 @@ function App() {
           .then(data => setproducts(data))
         
       }, [])
+      const router = createBrowserRouter([
+        {
+          path: '/',
+          element: <Layout />,
+          children: [
+            { index: true, element: <Home /> },
+            { path: 'About', element: <About /> },
+            { path: 'Contact', element: <Contact /> },
+            { path: 'Menu', element: <Menu products={products} /> },
+            { path: 'product/:id', element: <ProductDetail /> },
+            { path: 'Admin', element: <Admin /> }
+          ]
+        },
+        {
+          path: '*',
+          element: <Errorlink />
+        }
+      ])
       
 
     return (
-    <Routes>
-      <Route path='/' element={<Layout/>}>
-        <Route exact path="/" element={<Home/>}/>
-        <Route path="/About" element={<About/>}/>
-        <Route path="/Contact" element={<Contact/>}/>
-        <Route path="/Menu" element={<Menu products={products}/>}/>
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path='/Admin' element={<Admin/>}/> 
-      </Route>
-      <Route path='*' element={<Errorlink/>}/>
-      
-    </Routes>
+      <RouterProvider router={router}/>
+    
   )
 }
 

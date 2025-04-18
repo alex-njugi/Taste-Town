@@ -38,6 +38,73 @@ body{
 .nav-links a:hover {
   color: #4CAF50;
 }
+.sidebtn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.userbtn {
+  background-color: transparent;
+  border: 2px solid #dc143c;
+  color: #dc143c;
+  border-radius: 50%;
+  padding: 10px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.userbtn:hover {
+  background-color: #ffe6e6;
+  transform: scale(1.05);
+}
+
+
+.shopbag {
+  background-color: transparent;
+  border: 2px solid #1f1f1f;
+  color: #1f1f1f;
+  border-radius: 50%;
+  padding: 10px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.shopbag:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.05);
+}
+
+
+.signbtn {
+  background-color: #dc143c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signbtn:hover {
+  background-color: #b5102f;
+}
+
 .loaddis {
   display: flex;
   align-items: center;

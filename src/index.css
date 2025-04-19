@@ -406,3 +406,68 @@ html, body {
   color: white;
   box-shadow: 0 2px 8px rgba(41, 128, 185, 0.3);
 }
+.about-container {
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-container h1 {
+  font-size: 36px;
+  color: #1f1f1f;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.about-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+}
+
+.about-container img {
+  max-width: 100%;
+  height: auto;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  display: block;
+}
+
+.about-highlight {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.about-highlight div {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.about-highlight div:hover {
+  transform: translateY(-5px);
+}
+
+.about-highlight h1 {
+  font-size: 20px;
+  color: #2e2e2e;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.about-highlight p {
+  font-size: 16px;
+  color: #666;
+}

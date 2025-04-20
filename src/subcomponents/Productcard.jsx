@@ -9,8 +9,8 @@ const IndividualProduct = ({image,name,price,product}) => {
 
   return(
 
-    <div className='individualprod' onClick={handleClick}>
-        <img src={image} alt="Product Image" />
+    <div className='individualprod'>
+        <img src={image} alt="Product Image" onClick={handleClick} />
         <h2>{name}</h2>
         <p>Price: ${price}</p>
         <button>Add to cart</button>

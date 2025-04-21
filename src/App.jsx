@@ -29,7 +29,7 @@ function App() {
             { path: 'Contact', element: <Contact /> },
             { path: 'Menu', element: <Menu products={products} /> },
             { path: 'product/:id', element: <ProductDetail /> },
-            { path: 'Admin', element: <Admin /> }
+            { path: 'Admin', element: <Admin products={products} setproducts={setproducts}/> }
           ]
         },
         {

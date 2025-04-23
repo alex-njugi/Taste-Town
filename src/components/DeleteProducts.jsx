@@ -1,26 +1,57 @@
-import React from "react";
-import { FaTrashAlt } from 'react-icons/fa';
+import React from 'react';
 
 
-
-const DeleteProduct = ({ productId, onDelete }) => {
-  const handleDelete = () => {
-    fetch(`https://taste-town-server.vercel.app/items/${productId}`, {
-      method: "DELETE",
+function Admin({ products, setproducts }) {
+  
+  const handleDelete = (id) => {
+    fetch(`https://taste-town-server.vercel.app/items/${id}`, {
+      method: 'DELETE',
     })
-      .then((response) => {
-        if (response.ok) {
-          onDelete(productId);
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Failed to delete item");
         }
+        setproducts(prev => prev.filter(product => product.id !== id));
       })
-      .catch((error) => console.error("Error deleting product:", error));
+      .catch(err => console.error("Error deleting product:", err));
   };
+  console.log(products);
+  
 
   return (
-    <button onClick={handleDelete} className="delete-btn">
-      <FaTrashAlt /> Delete Product
-    </button>
+    <div className="admin-panel">
+      <h2 className="admin-title">DELETE </h2>
+      {products.length === 0 ? (
+        <p className="no-products">No products available.</p>
+      ) : (
+        <table className="product-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map(product => (
+              <tr key={product.id}>
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>
+                  <button 
+                    className="delete-button" 
+                    onClick={() => handleDelete(product.id)}
+                  >
+                    🗑️ Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
   );
-};
+}
 
-export default DeleteProduct;
+export default Admin;

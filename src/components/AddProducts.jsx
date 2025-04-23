@@ -16,16 +16,50 @@ const AddProducts = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Product submitted:', formData)
-    setFormData({
-      productName: '',
-      productPrice: '',
-      productCategory: '',
-      productDescription: '',
-      productImage: ''
-    })
-  }
+  
+    if (formData.productPrice <= 0) {
+      alert('Product price must be a positive number.')
+      return
+    }
 
+    const productData = {
+      name: formData.productName,
+      price: parseFloat(formData.productPrice),
+      category: formData.productCategory,
+      description: formData.productDescription,
+      image: formData.productImage
+    }
+
+    fetch('https://taste-town-server.vercel.app/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(productData)
+    })
+    
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to add product') // Catch API errors
+        return res.json()
+      })
+      .then((data) => {
+        console.log('Product added:', data)
+        alert('Product added successfully!')
+
+        setFormData({
+          productName: '',
+          productPrice: '',
+          productCategory: '',
+          productDescription: '',
+          productImage: ''
+        })
+      })
+      .catch((err) => {
+        console.error('Error:', err)
+        alert('There was a problem adding the product.')
+      })
+  }
+  
   return (
     <div>
       <h1>Add Products</h1>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddProducts = () => {
+const AddProducts = ({products}) => {
   const [formData, setFormData] = useState({
     productName: '',
     productPrice: '',
@@ -22,10 +22,14 @@ const AddProducts = () => {
       return
     }
 
+    const lastId = products.length > 0 ? parseInt(products[products.length - 1].id) : 0;
+    const newId = (lastId + 1).toString();
+
     const productData = {
+      id: newId,
       name: formData.productName,
       price: parseFloat(formData.productPrice),
-      category: formData.productCategory,
+      category:formData.productCategory,
       description: formData.productDescription,
       image: formData.productImage
     }
@@ -38,25 +42,24 @@ const AddProducts = () => {
       body: JSON.stringify(productData)
     })
     
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to add product') // Catch API errors
-        return res.json()
-      })
+      .then((res) => res.json())
       .then((data) => {
         console.log('Product added:', data)
         alert('Product added successfully!')
-
-        setFormData({
-          productName: '',
-          productPrice: '',
-          productCategory: '',
-          productDescription: '',
-          productImage: ''
-        })
+        
       })
       .catch((err) => {
         console.error('Error:', err)
         alert('There was a problem adding the product.')
+      })
+      
+      setFormData({
+        productName: '',
+        productPrice: '',
+        productCategory: '',
+        productDescription: '',
+        productImage: ''
+      
       })
   }
   
@@ -64,7 +67,7 @@ const AddProducts = () => {
     <div>
       <h1>Add Products</h1>
       <form onSubmit={handleSubmit}>
-        <div>
+        
           <label htmlFor="productName">Product Name:</label>
           <input
             type="text"
@@ -74,8 +77,7 @@ const AddProducts = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div>
+       
           <label htmlFor="productPrice">Product Price:</label>
           <input
             type="number"
@@ -85,8 +87,7 @@ const AddProducts = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div>
+       
           <label htmlFor="productCategory">Product Category:</label>
           <input
             type="text"
@@ -96,8 +97,7 @@ const AddProducts = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div>
+        
           <label htmlFor="productDescription">Product Description:</label>
           <textarea
             id="productDescription"
@@ -106,8 +106,7 @@ const AddProducts = () => {
             onChange={handleChange}
             required
           ></textarea>
-        </div>
-        <div>
+       
           <label htmlFor="productImage">Product Image URL:</label>
           <input
             type="url"
@@ -117,7 +116,7 @@ const AddProducts = () => {
             onChange={handleChange}
             required
           />
-        </div>
+        
         <button type="submit">Add Product</button>
       </form>
     </div>

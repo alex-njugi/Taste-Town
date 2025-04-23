@@ -5,7 +5,7 @@ import DeleteProducts from './DeleteProducts'
 const Admin = ({products,setproducts}) => {
   return (
     <div>
-<AddProducts />
+<AddProducts products={products}/>
 <DeleteProducts products={products} setproducts={setproducts} />
 
     </div>

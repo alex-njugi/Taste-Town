@@ -48,10 +48,7 @@ const AddProducts = ({products}) => {
         alert('Product added successfully!')
         
       })
-      .catch((err) => {
-        console.error('Error:', err)
-        alert('There was a problem adding the product.')
-      })
+      .catch((error) => console.error('Error:', error))
       
       setFormData({
         productName: '',
@@ -64,7 +61,7 @@ const AddProducts = ({products}) => {
   }
   
   return (
-    <div>
+    <div className='add-product-container'>
       <h1>Add Products</h1>
       <form onSubmit={handleSubmit}>
         

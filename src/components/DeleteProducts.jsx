@@ -1,21 +1,24 @@
-import React from 'react';
+import React from 'react'
 
+const DeleteProducts = ({products,setproducts}) => {
 
-function Admin({ products, setproducts }) {
+  async function handleDelete(id) {
+    try {
+      const res = await fetch(`https://taste-town-server.vercel.app/items/${id}`, {
+        method: 'DELETE',
+      });
   
-  const handleDelete = (id) => {
-    fetch(`https://taste-town-server.vercel.app/items/${id}`, {
-      method: 'DELETE',
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to delete item");
-        }
-        setproducts(prev => prev.filter(product => product.id !== id));
-      })
-      .catch(err => console.error("Error deleting product:", err));
-  };
-  console.log(products);
+      if (!res.ok) {
+        throw new Error('Failed to delete from server');
+      }
+  
+      const filtered = products.filter(product => String(product.id) !== String(id));
+      setproducts(filtered);
+       
+    } catch (err) {
+      console.error('Error deleting product:', err);
+    }
+  }
   
 
   return (
@@ -51,7 +54,8 @@ function Admin({ products, setproducts }) {
         </table>
       )}
     </div>
-  );
+  
+  )
 }
 
-export default Admin;
+export default DeleteProducts

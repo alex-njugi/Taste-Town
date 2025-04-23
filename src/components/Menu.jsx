@@ -4,7 +4,7 @@ import FilterExchange from '../subcomponents/FilterExchange'
 const Menu = ({products}) => {
   return (
     <div>
-      <FilterExchange products={products}/>
+      <FilterExchange products={products} />
     </div>
   )
 }

@@ -13,12 +13,15 @@ import Admin from './components/Admin'
 
 function App() {
    const [products, setproducts] = useState([])
-      useEffect(() => {
-          fetch('https://taste-town-server.vercel.app/items')
-          .then(res => res.json())
-          .then(data => setproducts(data))
-        
-      }, [])
+
+   useEffect(() => {
+    fetch('https://taste-town-server.vercel.app/items')
+    .then(res => res.json())
+    .then(data => setproducts(data))
+  
+   }, [])
+   
+  
       const router = createBrowserRouter([
         {
           path: '/',
@@ -29,7 +32,7 @@ function App() {
             { path: 'Contact', element: <Contact /> },
             { path: 'Menu', element: <Menu products={products} /> },
             { path: 'product/:id', element: <ProductDetail /> },
-            { path: 'Admin', element: <Admin products={products} setproducts={setproducts}/> }
+            { path: 'Admin', element: <Admin products={products} setproducts={setproducts} /> }
           ]
         },
         {

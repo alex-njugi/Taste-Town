@@ -1,11 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const IndividualProduct = ({image,name,price,product}) => {
+const IndividualProduct = ({image,name,price,product, addToCart }) => {
   const navigate = useNavigate()
   const handleClick = () => {
     navigate(`/product/${product._id}`,{state: {product}})
   }
+  const handleAddToCart = (e) => {
+    e.stopPropagation(); 
+    addToCart(product);
+  };
+
 
   return(
 
@@ -13,13 +18,13 @@ const IndividualProduct = ({image,name,price,product}) => {
         <img src={image} alt="Product Image" onClick={handleClick} />
         <h2>{name}</h2>
         <p>Price: ${price}</p>
-        <button>Add to cart</button>
+        <button onClick={handleAddToCart}>Add to cart</button>
     </div>
   )
 
 }
 
-const Productcard = ({products}) => {
+const Productcard = ({products,addToCart }) => {
   console.log(products)
    
   return (
@@ -31,6 +36,7 @@ const Productcard = ({products}) => {
             name={product.name}
             price={product.price}
             product={product}
+            addToCart={addToCart}
             
             />
         ))}

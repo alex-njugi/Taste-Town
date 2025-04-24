@@ -95,7 +95,7 @@ export default App
 ---
 
 ### **FilterEchange**
-This is where the filter functionnality is housed, the filter button opens a side bar containg the avaialble categories and a checkbox that when checked filteres  the products and passes the filtred array to the `productCard`.The user is also able to add items to a vrtual cart
+This is where the filter functionnality is housed, the filter button opens a side bar containg the avaialble categories and a checkbox that when checked filteres  the products and passes the filtred array to the `productCard`.The user is also able to add items to a vrtual cart.
 
 ```jsx
 import React, { useState } from 'react';
